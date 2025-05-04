@@ -1,0 +1,392 @@
+.header {
+  background-color: $header-background-color;
+  width: 100%;
+
+  .icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: #202020;
+
+        & .header__notifications-counter {
+          outline-color: #202020;
+        }
+      }
+    }
+  }
+
+  &-wrapper {
+    width: 100%;
+    margin: 0 auto;
+    max-width: 1100px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 6px;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      padding: 8px;
+    }
+  }
+
+  &__burger {
+    margin-right: 8px;
+    padding: 19px 11px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      margin-right: 12px;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        .burger-line {
+          background-color: $active-color;
+
+          &::after,
+          &::before {
+            background-color: $active-color;
+          }
+        }
+
+        .burger-close {
+          background-color: $active-color;
+
+          &::after {
+            background-color: $active-color;
+          }
+        }
+      }
+    }
+
+    .burger-line {
+      height: 2px;
+      width: 18px;
+      background-color: #fff;
+      display: block;
+      position: relative;
+      transition: background-color 0.3s ease;
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 2px;
+        background-color: #fff;
+        display: block;
+        transition: background-color 0.3s ease;
+      }
+
+      &::after {
+        top: -5px;
+      }
+
+      &::before {
+        top: 5px;
+      }
+    }
+
+    .burger-close {
+      height: 2px;
+      width: 18px;
+      background-color: #fff;
+      display: block;
+      position: relative;
+      transform: rotate(45deg);
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        height: 2px;
+        background-color: #fff;
+        display: block;
+        transform: rotate(-90deg);
+      }
+    }
+
+    .header:has(#burgerMenu:popover-open) & .burger-line {
+      display: none;
+    }
+
+    .header:not(:has(#burgerMenu:popover-open)) & .burger-close {
+      display: none;
+    }
+  }
+
+  &__logo {}
+
+  &__navigation {
+    flex: 1;
+    display: flex;
+    align-self: center;
+    justify-content: flex-end;
+    padding: 9px 12px 9px 9px;
+
+    &-broadcasting {
+      text-align: right;
+      color: $foreground-color;
+      align-items: center;
+      gap: 12px;
+      display: flex;
+
+      &-icon {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: white;
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          width: 17px;
+          height: 17px;
+          border: 2px solid rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          top: 0;
+          left: 0;
+          transform: translate(-32%, -32%);
+          transform-origin: center;
+        }
+      }
+    }
+  }
+
+  &__favorites {
+    color: $foreground-color;
+
+    &-btn {
+      padding: 9px;
+
+      &_news {
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          background-color: $active-color-btn;
+          border-radius: 50%;
+          top: 6px;
+          right: 7px;
+        }
+      }
+    }
+  }
+
+  &__notifications {
+    color: $foreground-color;
+
+    &-btn {
+      padding: 9px;
+      position: relative;
+    }
+
+    &-counter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: absolute;
+      top: 5px;
+      right: 6px;
+      min-height: 14px;
+      min-width: 14px;
+      font-weight: 900;
+      font-size: 10px;
+      line-height: 12px;
+      outline: 2px solid $header-background-color;
+      transition: all 0.2s ease;
+      background-color: #FF4122;
+      border-radius: 50%;
+    }
+
+  }
+
+  &__search {
+    color: $foreground-color;
+    display: flex;
+    position: relative;
+    display: none;
+
+    &-btn {
+      padding: 8px;
+    }
+
+    &-form {
+      opacity: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      background-color: $header-background-color;
+
+
+      &.active {
+        opacity: 1;
+        z-index: 2;
+
+        input {
+          width: 200px;
+        }
+      }
+
+      &-input {
+        background-color: #202020;
+        min-height: 40px;
+        border-radius: 24px;
+        border: none;
+        padding-left: 15px;
+        padding-right: 40px;
+        color: inherit;
+        width: 0;
+        transition: all 0.3s ease;
+
+        &:focus {
+          outline: none;
+          caret-color: $active-color;
+        }
+      }
+
+      &-submit {
+        position: absolute;
+        right: 8px;
+        top: 8px;
+        background-color: #202020;
+
+        &:focus {
+          outline: none;
+        }
+
+        &:active {
+          color: $active-color;
+        }
+
+        @media (hover: hover) {
+          &:hover {
+            color: $active-color;
+          }
+        }
+      }
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: $active-color;
+      }
+    }
+
+    &:active {
+      color: $active-color;
+    }
+  }
+
+  &__user-menu.icon-btn {
+    color: $foreground-color;
+    min-height: 28px;
+    min-width: 28px;
+    margin: 6px;
+    border-radius: 50%;
+    background-color: #31C26B;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: capitalize;
+    display: none;
+    user-select: none;
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: #FADB00;
+        color: $header-background-color;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $breakpoint-tablet) {
+  .header {
+    &__navigation {
+      &-broadcasting {
+        display: none;
+      }
+    }
+
+    &__search {
+      display: block;
+    }
+
+    &__user-menu.icon-btn {
+      display: block;
+    }
+  }
+
+}
+
+.burger-menu {
+  height: calc(100svh - 50px);
+  width: 100vw;
+  border: 1px solid var(--white-20);
+  top: 54px;
+  left: 0;
+  position: absolute;
+
+  .burger-menu__close {
+    position: absolute;
+    font-size: 24px;
+    top: 16px;
+    right: 16px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 12;
+    color: $foreground-color;
+
+    @media screen and (min-width: $breakpoint-desktop) {
+      color: $primary-color;
+    }
+  }
+}
+
+.sing-in-popup {
+  border: none;
+  position: relative;
+
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+  }
+
+  &__close {
+    position: absolute;
+    font-size: 24px;
+    top: 16px;
+    right: 16px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 12;
+    color: $foreground-color;
+  }
+}

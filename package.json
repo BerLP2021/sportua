@@ -1,0 +1,27 @@
+{
+  "name": "sportua",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.1",
+    "@vitejs/plugin-legacy": "^6.0.2",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.25.1",
+    "eslint-config-prettier": "^10.1.2",
+    "eslint-plugin-prettier": "^5.2.6",
+    "postcss-preset-env": "^10.1.5",
+    "prettier": "^3.5.3",
+    "sass": "^1.87.0",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.31.1",
+    "vite": "^6.3.1",
+    "vite-plugin-checker": "^0.9.1",
+    "vite-plugin-minify": "^2.1.0"
+  }
+}

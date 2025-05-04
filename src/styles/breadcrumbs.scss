@@ -1,0 +1,37 @@
+.breadcrumbs {
+
+
+  &-wrap {
+    // height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 12px;
+
+    @media screen and (min-width: $breakpoint-tablet) {
+      padding-inline: 20px;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.7);
+
+    &:last-child {
+      color: rgba(0, 0, 0, 0.38);
+    }
+
+    svg {
+      color: rgba(0, 0, 0, 0.38);
+      margin-left: 12px;
+    }
+  }
+
+  &__item-name {
+    font-size: 12px;
+    line-height: 12px;
+  }
+}

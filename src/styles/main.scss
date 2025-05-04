@@ -1,0 +1,115 @@
+@import "variables";
+@import "header";
+@import "navigation";
+@import "breadcrumbs";
+@import "page";
+@import "tournament";
+@import "news";
+
+:root {
+    font-family: Roboto, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color: $primary-color;
+    background-color: #fff;
+
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    font-weight: 500;
+    color: inherit;
+    text-decoration: inherit;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body.menu-open {
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+button {
+    font-family: inherit;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: inherit
+}
+
+button:focus {
+    outline: 2px auto -webkit-focus-ring-color;
+    // outline: none;
+}
+
+.mobile {
+    display: block;
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        display: none;
+    }
+}
+
+.desktop {
+    display: none;
+
+    @media screen and (min-width: $breakpoint-desktop) {
+        display: block;
+    }
+}
+
+
+// @media (prefers-color-scheme: light) {
+//     :root {
+//         color: #213547;
+//         background-color: #ffffff;
+//     }
+
+//     a:hover {
+//         color: #747bff;
+//     }
+
+//     button {
+//         background-color: #f9f9f9;
+//     }
+// }
