@@ -32,6 +32,7 @@ export default defineConfig({
       ],
     },
   },
+  // base: '/sportua/',
   server: {
     open: true,
     port: 5173,
